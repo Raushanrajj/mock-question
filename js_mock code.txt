@@ -1,0 +1,54 @@
+let arr = [2,6,8,3,5,7, "a","b","e","u","y","z", "i","o",8,8]
+let map = {}
+for(let i=0;i<arr.length;i++){
+    if(map[arr[i]]==undefined){
+        map[arr[i]] = 1
+    }else{
+        map[arr[i]]++
+    }
+}
+let max = -1,max_f;
+let prime = []
+let even = []
+let vowel = []
+let consonent = []
+
+
+
+const checkprime = (x)=>{
+    for(let i=2;i<x/2;i++){
+        if(x%i==0){
+            return false
+        }
+    }
+    return true
+}
+for(let k in map){
+    if(map[k]>max){
+        max = map[k]
+        max_f= k
+    }
+    if(+k %2==0){
+        even.push(k)
+    }
+    if(checkprime(+k)){
+        prime.push(+k)
+    }
+   
+    if(k=="a"||k=="e"||k=="i"||k=="o"||k=="u"){
+        vowel.push(k)
+    }else if(k=="b"||k=="c"||k=="d"||k=="f"||k=="g"||
+    k=="h"||k=="j"||k=="k"||k=="l"||k=="m"||
+    k=="n"||k=="p"||k=="q"||k=="r"||k=="s"||
+    k=="t"||k=="v"||k=="w"||k=="x"||k=="y"||k=="z"){
+        consonent.push(k)
+    }
+    
+}
+
+console.log("maximum frequency: "+max_f)
+console.log("prime: "+ prime)
+console.log("even: "+even)
+console.log("vowel: "+vowel)
+console.log("consonent: "+consonent)
+
